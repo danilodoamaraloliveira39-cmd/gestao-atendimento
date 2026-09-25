@@ -90,6 +90,12 @@
             margin-bottom: 18px;
         }
 
+        .icone a {
+            text-decoration: none;
+            color: inherit;
+            display: inline-block;
+        }
+
         .card h2 {
             font-size: 24px;
             margin-bottom: 10px;
@@ -108,7 +114,6 @@
             font-size: 13px;
         }
 
-        /* Janela */
         .modal {
             display: none;
             position: fixed;
@@ -117,6 +122,7 @@
             align-items: center;
             justify-content: center;
             padding: 20px;
+            z-index: 999;
         }
 
         .modal-content {
@@ -167,6 +173,31 @@
             background: #004dcc;
         }
 
+        /* BOTÃO FLUTUANTE WHATSAPP */
+        .whatsapp-flutuante {
+            position: fixed;
+            width: 62px;
+            height: 62px;
+            bottom: 25px;
+            right: 25px;
+            background: #25D366;
+            color: #ffffff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            font-size: 32px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.35);
+            z-index: 9999;
+            transition: 0.3s;
+        }
+
+        .whatsapp-flutuante:hover {
+            transform: scale(1.1);
+            background: #1ebe5d;
+        }
+
         @media (max-width: 700px) {
             .opcoes {
                 grid-template-columns: 1fr;
@@ -178,6 +209,14 @@
 
             header {
                 padding: 20px;
+            }
+
+            .whatsapp-flutuante {
+                width: 58px;
+                height: 58px;
+                right: 18px;
+                bottom: 18px;
+                font-size: 29px;
             }
         }
     </style>
@@ -207,62 +246,97 @@
 
         <!-- ATENDIMENTO -->
         <div class="card" onclick="abrirModal('atendimento')">
-            <div class="icone">💬</div>
+
+            <div class="icone">
+                <a href="https://wa.me/5551926342520?text=Olá!%20Gostaria%20de%20falar%20com%20o%20atendimento." target="_blank" onclick="event.stopPropagation();">
+                    💬
+                </a>
+            </div>
 
             <h2>ATENDIMENTO</h2>
 
             <p>
                 Fale com nossa equipe e tire suas dúvidas.
             </p>
+
         </div>
 
 
         <!-- FATURA -->
         <div class="card" onclick="abrirModal('fatura')">
-            <div class="icone">🧾</div>
+
+            <div class="icone">
+                <a href="https://wa.me/5551926342520?text=Olá!%20Gostaria%20de%20consultar%20minha%20fatura." target="_blank" onclick="event.stopPropagation();">
+                    🧾
+                </a>
+            </div>
 
             <h2>FATURA</h2>
 
             <p>
                 Consulte sua fatura, vencimento e segunda via.
             </p>
+
         </div>
 
 
         <!-- SUPORTE -->
         <div class="card" onclick="abrirModal('suporte')">
-            <div class="icone">🛠️</div>
+
+            <div class="icone">
+                <a href="https://wa.me/5551926342520?text=Olá!%20Preciso%20de%20suporte." target="_blank" onclick="event.stopPropagation();">
+                    🛠️
+                </a>
+            </div>
 
             <h2>SUPORTE</h2>
 
             <p>
                 Precisa de ajuda com sua internet ou equipamento?
             </p>
+
         </div>
 
 
         <!-- SEM CONEXÃO -->
         <div class="card" onclick="abrirModal('conexao')">
-            <div class="icone">📡</div>
+
+            <div class="icone">
+                <a href="https://wa.me/5551926342520?text=Olá!%20Estou%20sem%20conexão%20e%20preciso%20de%20ajuda." target="_blank" onclick="event.stopPropagation();">
+                    📡
+                </a>
+            </div>
 
             <h2>SEM CONEXÃO</h2>
 
             <p>
                 Está sem internet? Verifique sua conexão e solicite ajuda.
             </p>
+
         </div>
 
     </section>
 
 </main>
 
+
 <footer>
     © 2026 Giga+ — Portal de Atendimento
 </footer>
 
 
-<!-- MODAL -->
+<!-- BOTÃO FLUTUANTE WHATSAPP -->
+<a
+    href="https://wa.me/5551926342520?text=Olá!%20Gostaria%20de%20falar%20com%20o%20atendimento."
+    class="whatsapp-flutuante"
+    target="_blank"
+    aria-label="Falar pelo WhatsApp"
+    title="Falar pelo WhatsApp">
+    ☎
+</a>
 
+
+<!-- MODAL -->
 <div class="modal" id="modal">
 
     <div class="modal-content">
@@ -273,7 +347,11 @@
 
         <p id="modalTexto"></p>
 
-        <a href="#" class="botao" id="modalBotao">
+        <a
+            href="https://wa.me/5551926342520"
+            target="_blank"
+            class="botao"
+            id="modalBotao">
             Continuar
         </a>
 
@@ -300,8 +378,8 @@
 
             botao.innerText = "Falar com atendimento";
 
-            botao.href = "#";
-
+            botao.href =
+                "https://wa.me/5551926342520?text=Olá!%20Gostaria%20de%20falar%20com%20o%20atendimento.";
         }
 
         if (tipo === "fatura") {
@@ -313,8 +391,8 @@
 
             botao.innerText = "Consultar fatura";
 
-            botao.href = "#";
-
+            botao.href =
+                "https://wa.me/5551926342520?text=Olá!%20Gostaria%20de%20consultar%20minha%20fatura.";
         }
 
         if (tipo === "suporte") {
@@ -326,8 +404,8 @@
 
             botao.innerText = "Solicitar suporte";
 
-            botao.href = "#";
-
+            botao.href =
+                "https://wa.me/5551926342520?text=Olá!%20Preciso%20de%20suporte.";
         }
 
         if (tipo === "conexao") {
@@ -339,8 +417,8 @@
 
             botao.innerText = "Verificar conexão";
 
-            botao.href = "#";
-
+            botao.href =
+                "https://wa.me/5551926342520?text=Olá!%20Estou%20sem%20conexão%20e%20preciso%20de%20ajuda.";
         }
 
         modal.style.display = "flex";
